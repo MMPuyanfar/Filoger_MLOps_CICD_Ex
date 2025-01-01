@@ -1,0 +1,41 @@
+/* Import Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #f0f2f5;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+header {
+  position: relative;
+  top: 0;
+  width: 100%;
+}
+
+footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+.nav-link:hover {
+  color: white !important; /* Bootstrap warning color */
+}
+
+.text-justify {
+  text-align: justify;
+}
+.error {
+  color: red;
+}

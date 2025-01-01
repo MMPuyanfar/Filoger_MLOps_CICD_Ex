@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block title %}
+  Profile
+{%endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="/static/css/profile.css" />
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h2>Profile and Prediction History</h2>
+
+  {% if predictions%}
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Prediction Date Time</th>
+          <th>Area (sqm)</th>
+          <th>Rooms</th>
+          <th>Parking</th>
+          <th>Warehouse</th>
+          <th>Elevator</th>
+          <th>Address</th>
+          <th>Predicted Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for prediction in predictions %}
+          <tr>
+            <td>{{ prediction.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+            <td>{{ prediction.area }}</td>
+            <td>{{ prediction.rooms }}</td>
+            <td>{{ 'Yes' if prediction.parking else 'No' }}</td>
+            <td>{{ 'Yes' if prediction.warehouse else 'No' }}</td>
+            <td>{{ 'Yes' if prediction.elevator else 'No' }}</td>
+            <td>{{ prediction.address }}</td>
+            <td>{{ prediction.predicted_price }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>You have no prediction history yet.</p>
+  {% endif %}
+
+  <!-- Add a button to navigate back to the profile or input page -->
+  <div class="button-container">
+    <a href="{{ url_for('home') }}" class="btn"
+      >Back to Home</a
+    >
+  </div>
+</div>
+{% endblock %}
