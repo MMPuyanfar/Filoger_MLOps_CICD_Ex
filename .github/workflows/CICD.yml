@@ -33,7 +33,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t house-price-estimation-app .
+          docker build -t house-price-estimation-app ./app
 
       # - name: Push Docker image to Docker Hub
       #   run: |
