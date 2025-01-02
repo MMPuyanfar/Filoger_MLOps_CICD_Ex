@@ -32,8 +32,7 @@ jobs:
     steps:
 
       - name: Build Docker image
-        run: | 
-          
-            docker build -t hpe-app:latest -f ./Dockerfile .
+        run:
+            docker build -t hpe-app:latest .
 
       
