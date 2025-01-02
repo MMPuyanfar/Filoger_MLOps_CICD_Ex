@@ -33,18 +33,6 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t house-price-estimation-app ./app
+          docker build -t hpe-app:latest ../../Dockerfile
 
-      # - name: Push Docker image to Docker Hub
-      #   run: |
-      #     echo ${{ secrets.DOCKER_HUB_PASSWORD }} | docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} --password-stdin
-      #     docker tag house-price-estimation-app ${{ secrets.DOCKER_HUB_USERNAME }}/house-price-estimation-app
-      #     docker push ${{ secrets.DOCKER_HUB_USERNAME }}/house-price-estimation-app
-
-      # - name: Deploy to Heroku
-      #   run: |
-      #     curl https://cli-assets.heroku.com/install.sh | sh
-      #     heroku login -i
-      #     heroku container:login
-      #     heroku container:push web -a house-price-estimation-app
-      #     heroku container:release web -a house-price-estimation-app
+      
