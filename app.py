@@ -33,7 +33,6 @@ def login():
         user = User.query.filter_by(email=form.email.data).first()
         if user and user.check_password(form.password.data):
             session["user_id"] = user.id
-            flash("Logged in successfully!", "success")
             return redirect(url_for("home"))
         else:
             flash("Invalid username or password", "danger")
@@ -43,7 +42,6 @@ def login():
 @app.route("/logout")
 def logout():
     session.pop("user_id", None)
-    flash("You have been logged out.", "info")
     return redirect(url_for("home"))
 
 
@@ -63,7 +61,6 @@ def register():
             db.session.add(user)
             db.session.commit()
             session["user_id"] = user.id
-            flash("Your account has been created! You can now log in.", "success")
             return redirect(url_for("home"))
     elif request.method == "GET":
         return render_template("register.html", form=form)
@@ -133,5 +130,18 @@ def result():
     return render_template("result.html")
 
 
+@app.errorhandler(Exception)
+def handle_error(e):
+    # Get the error code; use 500 if not found
+    error_code = getattr(e, "code", 500)
+    error_message = str(e)
+    return (
+        render_template(
+            "error.html", error_code=error_code, error_message=error_message
+        ),
+        error_code,
+    )
+
+
 if __name__ == "__main__":
-    app.run(debug=False)
+    app.run(debug=True)

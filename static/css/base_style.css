@@ -15,6 +15,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  height: 100vh;
 }
 
 header {
@@ -30,12 +31,9 @@ footer {
 }
 
 .nav-link:hover {
-  color: white !important; /* Bootstrap warning color */
+  color: white !important;
 }
 
 .text-justify {
   text-align: justify;
-}
-.error {
-  color: red;
 }
