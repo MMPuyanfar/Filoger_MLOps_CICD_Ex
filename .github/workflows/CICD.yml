@@ -46,3 +46,11 @@ jobs:
           
       - name: Push Docker image
         run: docker push ${{ secrets.DOCKER_USERNAME }}/hpe-app:latest
+
+      - name: Deploy new version
+        uses: hatamiarash7/ar-paas-action@v1.0.0
+        with:
+          auth: 762ae1c5-fcd6-53aa-8c9e-6e88ee440bdc
+          app: hpe1
+          container: hpe1
+          image: mmpuyanfar/hpe-app:latest
