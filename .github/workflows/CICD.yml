@@ -48,7 +48,7 @@ jobs:
         run: docker push ${{ secrets.DOCKER_USERNAME }}/hpe-app:latest
 
       - name: Deploy new version
-        uses: hatamiarash7/ar-paas-action@v1.3.0
+        uses: hatamiarash7/ar-paas-action@v1.2.1
         with:
           region: 3
           auth: apikey c3dd4afb-4869-5f48-8284-512d06e59153
