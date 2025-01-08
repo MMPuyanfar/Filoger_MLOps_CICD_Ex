@@ -50,7 +50,7 @@ jobs:
       - name: Deploy new version
         uses: hatamiarash7/ar-paas-action@v1.3.0
         with:
-          region: 1
+          region: 2
           auth: ${{ secrets.AR_AUTH }}
           app: hpe
           container: hpe
